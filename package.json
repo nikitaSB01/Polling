@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "start server": "node server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest --passWithNoTests",
@@ -41,5 +42,11 @@
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "faker": "^5.5.3",
+    "rxjs": "^7.8.1"
   }
 }
