@@ -3,7 +3,7 @@ import { ajax } from "rxjs/ajax";
 import { switchMap, map, catchError } from "rxjs/operators";
 
 // URL для получения сообщений
-const url = "http://localhost:3000/messages/unread";
+const url = "https://pollingserver.onrender.com/messages/unread";
 
 // Интервал опроса (например, каждые 5 секунд)
 const pollingInterval = 2000;
