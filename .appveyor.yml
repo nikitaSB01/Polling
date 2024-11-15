@@ -19,6 +19,7 @@ build: off # отключаем встроенную в appveyor систему 
 
 build_script:
   - npm run build # команда сборки
+  - node server.js
 
 test_script:
   #- npm run e2e
