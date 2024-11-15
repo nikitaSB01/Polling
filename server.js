@@ -5,8 +5,16 @@ const faker = require("faker");
 const app = express();
 const PORT = 3000;
 
-// Включаем CORS
-app.use(cors());
+// Настройка CORS
+const corsOptions = {
+  origin: [
+    "http://localhost:8080", // Для локальной разработки
+    "https://nikitasb01.github.io/Polling/", // Укажите свой GitHub Pages домен
+  ],
+  methods: ["GET"], // Разрешаем только GET-запросы
+};
+
+app.use(cors(corsOptions)); // Подключаем CORS с настройками
 
 // Настройка маршрута для статики (папка src)
 app.use(express.static("src"));
