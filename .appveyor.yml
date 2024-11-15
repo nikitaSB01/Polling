@@ -12,21 +12,26 @@ branches:
 cache: node_modules # кеширование
 
 install:
-  - npm install # команда установки зависимостей
-  # - npx puppeteer browsers install chrome
+  - npm install # установка зависимостей
 
-build: off # отключаем встроенную в appveyor систему сборки
+build: off # отключаем встроенную в AppVeyor систему сборки
 
 build_script:
-  - npm run build # команда сборки
-  - node server.js
+  - npm run build # сборка фронтенда
 
 test_script:
-  #- npm run e2e
+  # Комментируем или добавляем e2e-тесты при необходимости
+  # - npm run e2e
 
-deploy_script: # скрипт развёртывания
+# Настраиваем запуск серверной и клиентской части
+deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
+
+  # Запуск server.js
+  - nohup node server.js & # Запуск сервера в фоне
+
+  # Публикация клиентской части из dist на GitHub Pages
   - npx gh-pages -d dist -u "appveyor-bot <ci@appveyor>"
