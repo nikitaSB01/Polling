@@ -8,8 +8,10 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    min-width: 500px;
-    max-width: 550pxff;
+    /*   min-width: 600px;
+    max-width: 650px;
+    min-height: 500px;
+    max-height: 650px; */
 }
 
 h1 {
@@ -19,11 +21,41 @@ h1 {
 }
 
 #messages-container {
-    width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid rgb(223, 128, 26);
+    border-radius: 15px 0 0 15px;
+    padding: 15px 25px 15px 30px; /* Уменьшили padding справа */
+    background-color: #fbefef;
+    min-width: 600px;
+    max-width: 650px;
+    min-height: 650px;
+    max-height: 650px;
+    overflow-y: auto; /* Вертикальная прокрутка */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    position: relative;
+}
+
+/* Полоса прокрутки */
+#messages-container::-webkit-scrollbar {
+    width: 10px; /* Ширина полосы прокрутки */
+    position: absolute;
+    right: 20px;
+}
+
+/* Ползунок полосы прокрутки */
+#messages-container::-webkit-scrollbar-thumb {
+    background-color: #e6801a; /* Цвет ползунка */
+    border-radius: 5px; /* Скругление углов */
+    border: 2px solid #fbefef; /* Отступ от правого края */
+    margin-right: 10px; /* Сдвиг полосы прокрутки влево */
+}
+
+/* Фон полосы прокрутки */
+#messages-container::-webkit-scrollbar-track {
+    background-color: #ffe6cc; /* Цвет фона */
+    border-radius: 5px; /* Скругление углов */
 }
 
 .message {
@@ -32,7 +64,7 @@ h1 {
     display: flex;
     /*     border: 1px solid rgb(230, 146, 146); */
     border-radius: 15px;
-    background-color: #fceaea;
+    background-color: #f6d5d5;
     /* align-items: center; */
 }
 

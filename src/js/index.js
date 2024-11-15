@@ -55,7 +55,9 @@ function addMessageToContainer(message) {
 
   const dateDiv = document.createElement("div");
   dateDiv.classList.add("date");
-  const receivedDate = new Date(message.received);
+
+  // Используем текущее локальное время клиента
+  const receivedDate = new Date();
   dateDiv.textContent = `${String(receivedDate.getHours()).padStart(
     2,
     "0"
@@ -65,6 +67,7 @@ function addMessageToContainer(message) {
     2,
     "0"
   )}.${receivedDate.getFullYear()}`;
+
   messageDiv.append(dateDiv);
 
   // Добавляем новое сообщение в начало контейнера
